@@ -14,11 +14,14 @@ import PetsIcon from "@mui/icons-material/Pets";
 import MailIcon from "@mui/icons-material/Mail";
 
 import NotificationsIcon from "@mui/icons-material/Notifications";
+import { useSelector } from "react-redux";
 
 export default function Navbar() {
   const [open, setOpen] = React.useState(false);
+
+  const name = useSelector(state=>state.user.name);
   return (
-    <AppBar position="sticky">
+    <AppBar position="fixed">
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
         <Typography variant="h6" sx={{ display: { xs: "none", sm: "block" } }}>
           MY APP
@@ -47,7 +50,7 @@ export default function Navbar() {
               src="/static/images/avatar/1.jpg"
               onClick={(e) => setOpen(true)}
             />
-            <Typography>Merna</Typography>
+            <Typography>{name}</Typography>
           </Box>
         </Box>
       </Toolbar>

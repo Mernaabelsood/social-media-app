@@ -17,8 +17,12 @@ import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import Switch from "@mui/material/Switch";
 
 import ModeNightIcon from "@mui/icons-material/ModeNight";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function Sidebar({ mode, setMode }) {
+  const name = useSelector(state=>state.user.name);
+
   return (
     <Box flex={1} p={2} sx={{ display: { xs: "none", sm: "block" } }}>
       <Box position={"fixed"}>
@@ -32,13 +36,13 @@ export default function Sidebar({ mode, setMode }) {
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton component="a" href="#settings">
-              <ListItemIcon>
-                <SettingsIcon />
-              </ListItemIcon>
-              <ListItemText primary="Settings" />
-            </ListItemButton>
-          </ListItem>
+  <ListItemButton component={Link} to="/update-profile">
+    <ListItemIcon>
+      <SettingsIcon />
+    </ListItemIcon>
+    <ListItemText primary="Update Profile" />
+  </ListItemButton>
+</ListItem>
           <ListItem disablePadding>
             <ListItemButton component="a" href="#pages">
               <ListItemIcon>
@@ -68,7 +72,8 @@ export default function Sidebar({ mode, setMode }) {
               <ListItemIcon>
                 <AccountBoxIcon />
               </ListItemIcon>
-              <ListItemText primary="Profile" />
+              <ListItemText primary={`${name} profile`}
+              />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
