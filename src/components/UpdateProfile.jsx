@@ -9,12 +9,21 @@ import {
   InputAdornment,
   useTheme,
 } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { update } from "../redux/userSlice";
 
 export default function UpdateProfile() {
   const theme = useTheme();
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
+  console.log(name, email);
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
+const handleUpdate = (e)=> {
+  e.preventDefault();
+  dispatch(update({name, email}));
+}
   return (
     <Box
       flex={4}
@@ -46,9 +55,11 @@ export default function UpdateProfile() {
           gap: 2,
         }}
       >
+
         <TextField
-          label="Username"
+          
           name="username"
+          placeholder={user.name}
           variant="outlined"
           size="medium"
           fullWidth
@@ -56,7 +67,8 @@ export default function UpdateProfile() {
         />
 
         <TextField
-          label="Email Address"
+          
+          placeholder={user.email}
           name="email"
           type="email"
           variant="outlined"
@@ -80,7 +92,7 @@ export default function UpdateProfile() {
           }}
         />
 
-        <Button type="submit" variant="contained" color="primary" fullWidth>
+        <Button type="submit" variant="contained" color="primary" fullWidth onClick={handleUpdate}>
           Update
         </Button>
       </Box>

@@ -13,8 +13,12 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
+import { useSelector } from "react-redux";
+import profileImage from "../assests/images/avatar.webp";
 
 export default function Rightbar() {
+  const name = useSelector(state=>state.user.name);
+
   const itemData = [
    
     
@@ -40,6 +44,8 @@ export default function Rightbar() {
       author: "@peterlaster",
     },
   ];
+
+
   return (
     <Box
       flex={2}
@@ -65,8 +71,8 @@ export default function Rightbar() {
           <Avatar alt="Trevor Henderson" src="/static/images/avatar/5.jpg" />
         </AvatarGroup>
         <Box>
-          <Typography variant="h6" fontWeight={100}>
-            Latest Photos
+          <Typography variant="h6" fontWeight="semibold">
+            {name} latest photos
           </Typography>
           <ImageList cols={4} rowHeight={150} gap={5}>
             {itemData.map((item) => (
@@ -85,15 +91,15 @@ export default function Rightbar() {
               </ImageListItem>
             ))}
           </ImageList>
-          <Typography variant="h6" fontWeight={100}>
-            Latest Conversations
+          <Typography variant="h6" fontWeight="semibold">
+            {name} latest conversations
           </Typography>
           <List
             sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
           >
             <ListItem alignItems="flex-start">
               <ListItemAvatar>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                <Avatar alt="Remy Sharp" src={profileImage} />
               </ListItemAvatar>
               <ListItemText
                 primary="Brunch this weekend?"

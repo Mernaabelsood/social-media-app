@@ -12,6 +12,7 @@ import Rightbar from "./components/Rightbar";
 import Add from "./components/Add";
 import UpdateProfile from "./components/UpdateProfile"; 
 import { useState } from "react";
+import Profile from "./components/Profile";
 
 function App() {
   const [name, setName] = useState('');
@@ -33,6 +34,7 @@ function App() {
             
             <Routes>
               <Route path="/update-profile" element={<UpdateProfile />} />
+              <Route path="/profile" element={<Profile />} />
               <Route path="/*" element={<Feed />} /> 
             </Routes>
 

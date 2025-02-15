@@ -19,6 +19,7 @@ import Switch from "@mui/material/Switch";
 import ModeNightIcon from "@mui/icons-material/ModeNight";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { HomeMaxTwoTone, HomeRepairService, HomeRepairServiceRounded } from "@mui/icons-material";
 
 export default function Sidebar({ mode, setMode }) {
   const name = useSelector(state=>state.user.name);
@@ -36,6 +37,14 @@ export default function Sidebar({ mode, setMode }) {
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
+  <ListItemButton component={Link} to="/feed">
+    <ListItemIcon>
+      <HomeIcon />
+    </ListItemIcon>
+    <ListItemText primary="Home" />
+  </ListItemButton>
+</ListItem>
+          <ListItem disablePadding>
   <ListItemButton component={Link} to="/update-profile">
     <ListItemIcon>
       <SettingsIcon />
@@ -43,47 +52,18 @@ export default function Sidebar({ mode, setMode }) {
     <ListItemText primary="Update Profile" />
   </ListItemButton>
 </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton component="a" href="#pages">
-              <ListItemIcon>
-                <LayersIcon />
-              </ListItemIcon>
-              <ListItemText primary="Pages" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton component="a" href="#groups">
-              <ListItemIcon>
-                <GroupIcon />
-              </ListItemIcon>
-              <ListItemText primary="Groups" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton component="a" href="#friends">
-              <ListItemIcon>
-                <PersonAddIcon />
-              </ListItemIcon>
-              <ListItemText primary="Friends" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton component="a" href="#profile">
-              <ListItemIcon>
-                <AccountBoxIcon />
-              </ListItemIcon>
-              <ListItemText primary={`${name} profile`}
-              />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton component="a" href="#marketplace">
-              <ListItemIcon>
-                <StorefrontIcon />
-              </ListItemIcon>
-              <ListItemText primary="Marketplace" />
-            </ListItemButton>
-          </ListItem>
+       
+<ListItem disablePadding>
+  <ListItemButton component={Link} to="/profile">
+    <ListItemIcon>
+    <AccountBoxIcon />
+    </ListItemIcon>
+    <ListItemText  primary={`${name} profile`} />
+  </ListItemButton>
+</ListItem>
+         
+      
+         
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>

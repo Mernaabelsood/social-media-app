@@ -13,6 +13,8 @@ import React from "react";
 import PetsIcon from "@mui/icons-material/Pets";
 import MailIcon from "@mui/icons-material/Mail";
 
+import profileImage from "../assests/images/avatar.webp";
+
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import { useSelector } from "react-redux";
 
@@ -47,7 +49,7 @@ export default function Navbar() {
             <Avatar
               sx={{ width: 30, height: 30 }}
               alt="Merna"
-              src="/static/images/avatar/1.jpg"
+              src={profileImage}
               onClick={(e) => setOpen(true)}
             />
             <Typography>{name}</Typography>
